@@ -1,5 +1,20 @@
-# Maintainer: graysky <graysky AT archlinux DOT us>
-# Contributor: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
+# Maintainer: CODJointOps
+
+## '_O3' -  Enable -O3 optimization - this isn't generally worth much, especially in the face of
+##          -march=native (or -march=x86-64-v3) and clang ThinLTO; set _O3 to anything to enable
+if [ -n "${_O3+x}" ]; then
+  _O3=y
+fi
+
+## Disable NUMA since most users do not have multiple processors. Breaks CUDA/NvEnc.
+## Archlinux and Xanmod enable it by default.
+## Set variable "use_numa" to: n to disable (possibly increase performance)
+##                             y to enable  (stock default)
+if [ -z ${use_numa+x} ]; then
+  use_numa=y
+fi
+
+
 
 ### BUILD OPTIONS
 # Set the next two variables to ANYTHING that is not null to enable them
