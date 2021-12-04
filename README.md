@@ -1,5 +1,5 @@
 # linux-ck-rog
-The linux-ck kernel with g14 + performance packages.
+The linux-ck kernel with rog + performance packages.
 
 
 # Compile
