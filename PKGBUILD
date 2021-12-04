@@ -92,6 +92,33 @@ source=(
   0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch
   0006-lg-laptop-Recognize-more-models.patch
   0007-Revert-drm-i915-Implement-Wa_1508744258.patch
+  sphinx-workaround.patch
+  PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
+  iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
+  cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch
+  Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch
+  lg-laptop-Recognize-more-models.patch
+  Revert-amd-pstate-v4.patch
+  squashed-amd-pstate-v5-on-5.15.y.patch
+  zstd-udpate-fixes.patch
+  x86-ACPI-State-Optimize-C3-entry-on-AMD-CPUs.patch
+  x86-change-default-to-spec_store_bypass_disable-prct.patch
+  acpi-battery-Always-read-fresh-battery-state-on-update.patch
+  cfg80211-dont-WARN-if-a-self-managed-device.patch
+  HID-asus-Reduce-object-size-by-consolidating-calls.patch
+  v16-asus-wmi-Add-support-for-custom-fan-curves.patch
+  mt76-mt7921-Add-mt7922-support.patch
+  1-2-mt76-mt7915-send-EAPOL-frames-at-lowest-rate.patch
+  2-2-mt76-mt7921-send-EAPOL-frames-at-lowest-rate.patch
+  mt76-mt7921-enable-VO-tx-aggregation.patch
+  1-2-mt76-mt7921-robustify-hardware-initialization-flow.patch
+  1-2-Bluetooth-btusb-Add-Mediatek-MT7921-support-for-Foxconn.patch
+  2-2-Bluetooth-btusb-Add-Mediatek-MT7921-support-for-IMC-Network.patch
+  Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
+  Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
+  Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
+  9001-v5.15.6-s0ix-patch-2021-12-01.patch
+
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -108,7 +135,33 @@ b2sums=('dedcff13b0829b9bdfc4998a9bedcf932dee48ade3bef722ccbd8fc7bef9832462ac2f1
         'e698661f8246d46eea768b0115e98c70179a1ff3c5931ec5bacabb476bfce3fb01c3b754065cbdcf36730e59b317b7b74d5b9a305b649a22b6af20abd999e89e'
         'c3eb2897afb99d51911f92372d4c9d37297c0910d4cd17b24b70c85a1ef95bf8f6c280bc9f43d2dc80593756628c7dcdd721f3f4bbbed8bf74ef347844606ddf'
         'bfef7971cb082ed938da787335404a788530f84b9b3416e8a6983556d1e69e552e777fd4dd276662da5808973e0896e8024b8227c601add98c4c72093a03d1ce'
-        'dfa875a75daae7f65dcadcbfc0fe025133f838594b59f9d158c5eff5bb86dab33e34aba4fc215c91d397c6bcff0a60d7368d08d3b1c4b73c5562518d0f6f88c0')
+        'dfa875a75daae7f65dcadcbfc0fe025133f838594b59f9d158c5eff5bb86dab33e34aba4fc215c91d397c6bcff0a60d7368d08d3b1c4b73c5562518d0f6f88c0'
+        'db64b425139c107c69f44624901ae50b5e604d4c9fdfe84f78c298f8ed7a7739033a72ec678c5c3c0e82e59809d97799d0c25f96c64ef5ae79910cb890fc7bfb'
+        'd4be09f159c6d0d33b2b4a91da5e04e2815c7091549ff2ca9268c7546fa39af688638a983db434db9a8357be2ff7c95926accf64428664a122b7ede82b782b33'
+        '62168cc422c73ddcda8c4b64d5546422d62c14c86f0eefafe53634be9ab231969e79f9bf0cb6161a05130428de90d41a2c2e1d18283294d8b446644b0da57b48'
+        '3607b209ffe43085987955131262107706f1900c8b81ab02b21899eedea2ab6eea91897fcd0aa301a66bb6275ffe1d66995f411825881ce695e657c8f6a84b02'
+        '41d1cbfe692dad3bca6667d0407c8366fe913fd70ebc7530f73283d0f482a589563a8ef5154e3f88fef9587295a9f70a57eca0246f047d8e2ed7b959bd5c80da'
+        'a95008246b7f703dd0f905b694426d3281c365175c96e50d6ac2a0ba0d4177b98d88116529c614d06810c7246d9f101c1ed65c68f03c8b0f1f8cf8a69140d80e'
+        '3d5c1c2f0df9000f20fe0f14b209654fa29ac135119cc57eb7c94119880891d1c6e708ad472aae947f34801fc49c373930661bbafa4149bdb3fb07581d88076a'
+        'a40f37d7522eb8e6af903894488d4ce235cecda92a465199a5396eb00e7276ad310408a629b5524e6cbaad92441a18e246fe30f526705791f58b4755a72b2ce9'
+        '8e9957af42b76720beff4c09d6ec0585b632578e14768b83c064b3cacb42f8ba5dc360da4c88cb1539992bfd37618b1bd599468ab8b1785202740d8ed6603eb7'
+        'ba20adaccd4623ad6313880c5c6160894cc784f2c657213262958f5ff783abfa88a5c3c3e8dd5e59d63936d5372c9a0036f5a9b868078bca9a95b1d063948246'
+        '1e7604552fb457400d40dc7e578c30940444090d7339020421b4c0f51c5db4c694a5d8791cd7a59464a04a6939b5b295509a4a7442e725caf287768642cab40b'
+        '069515160926c57d54fd6ae6b179af03c00e5e87fb85a25c2a7ad0cb05431c9e306dee8f6060f6a002c06a26fa24474ea3eeb14c5cc015caf1f92c637fd9f5cd'
+        '006ec152c2864356eb9fd4dc59fd0ab3e4106878d2e82e93b6774eefbbb5dfc27f226113831435faa90f4d2978a542f272cfb972b85f6312705f80e9cfe23d95'
+        '381fa9e3b7bc32d255af4e615b989e1518b17d6a626573d7886cd5af3b922da11924e819e6be51c33089015f374d4ee654062d430e37ac9870d96b42f4d1eef7'
+        '080619ae5aab57e332623a3ecb895e556ce81a87e75ab114f508e2459dcfaa67cfbed29159878015833fe281abcf6ce6864856788bc37bae5cc946350f085520'
+        '5d199b121d77e7ee1f19e0de1d27f5e7be44c574c9b347a408c75bc8dd77be91900c220cc06d639a64f4bc2019f93d156a850322ac0119ead38316d16bc62d9c'
+        'bb845ac96c4b1b623fc6953cd466fbb7b6002914a7392dadb6a6e4192821572dbf4cc2f75a59ec2317c7e195571f3bedff077119184038d0a9a3b872c0c6709a'
+        '92e15668a718400dc88942460f66d2cfa66b2e56a369929798808cb90b2c95f7d52af875863a2b860f9dbbb198451d0de36b31b1b16f43ad0e0b95cda3bc54e0'
+        '4cdbf23b35154929db0a81936b52a4501d935efa87034c1e01aa05ddccd9a8715fe16fcd95378f36f5e641e93059b0a7862b3589b9ad4bb965c55a2471acfd57'
+        '406c94d6524b3b16faed8407073da168a201746b2f88ef1bfd45f9e08d5f5762653e793297e09e4eb4b415c6c64a34f41a84c36e213eece54964c40cf3f374ab'
+        '2b467266bee080b91340ea7f3aa522c618993951d0d37fb169c09ad840da5d4d828065e664ffc22c0262486d1e965890a61d185bf8f49413daa6bf4f5bc71aac'
+        'f1ecd7722a124fe8f7e3f7ffd48a747c2174f55e2ce696439217d0025203f695e332bd15e488a47a59f0cb09dde9eeed07183de07f8049c2f39cfff0b5830cb7'
+        '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
+        '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
+        '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
+        'a327ae7a93b44572252ef13c92a237c17109fe38aaf206e17234e826c5b34946013d1e6a2290f5868c8e3bb65543aaa385781d9db3d895ba2d5e07c883c80a7e')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -342,3 +395,5 @@ for _p in "${pkgname[@]}"; do
 done
 
 # vim:set ts=8 sts=2 sw=2 et:
+
+
