@@ -1,4 +1,4 @@
-# linux-ck-g14
+# linux-ck-rog
 The linux-ck kernel with g14 + performance packages.
 
 
