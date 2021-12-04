@@ -1,5 +1,12 @@
 # Maintainer: CODJointOps
 
+
+case "${_compiler,,}" in
+  "clang" | "gcc") _compiler=${_compiler,,} ;; # tolower, simplifes later checks
+                *) _compiler=gcc            ;; # default to GCC
+esac
+
+
 ## '_O3' -  Enable -O3 optimization - this isn't generally worth much, especially in the face of
 ##          -march=native (or -march=x86-64-v3) and clang ThinLTO; set _O3 to anything to enable
 if [ -n "${_O3+x}" ]; then
@@ -77,17 +84,25 @@ _localmodcfg=
 #  41. AMD-Native optimizations autodetected by GCC (MNATIVE_AMD) (NEW)
 _subarch=
 
+
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
-pkgbase=linux-ck
+pkgbase=linux-ck-rog
 pkgver=5.15.6
+pkgverion=5.15.6
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
 makedepends=(
-  bc kmod libelf        cpio perl tar xz
+  bc kmod libelf pahole cpio perl tar xz
 )
+if [ "$_compiler" = "clang" ]; then
+  pkgver="${pkgver}+clang"
+  makedepends+=(clang llvm lld python)
+  _LLVM=1
+fi
 options=('!strip')
+_localversion=${pkgver##*\.}
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
@@ -96,7 +111,7 @@ _xan=linux-5.15.y-xanmod
 
 _gcc_more_v=20211114
 source=(
-  "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgver.tar".{xz,sign}
+  "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgverion.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
@@ -183,12 +198,13 @@ export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 prepare() {
-  cd linux-${pkgver}
+  cd linux-${pkgverion}
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
+
 
   local src
   for src in "${source[@]}"; do
@@ -201,6 +217,22 @@ prepare() {
 
   echo "Setting config..."
   cp ../config .config
+  
+  if [[ "$_compiler" == "clang" ]]; then
+    msg2 "Applying Clang ThinLTO configuration..."
+    scripts/config  --module  CONFIG_LTO \
+                    --enable  CONFIG_LTO_CLANG \
+                    --enable  CONFIG_HAS_LTO_CLANG \
+                    --disable CONFIG_LTO_NONE \
+                    --disable CONFIG_LTO_CLANG_FULL \
+                    --enable  CONFIG_LTO_CLANG_THIN \
+                    --disable CONFIG_INIT_STACK_ALL_PATTERN \
+                    --disable CONFIG_INIT_STACK_ALL_ZERO \
+                    --disable CONFIG_REGULATOR_DA903X 
+                    # this module is incompatible with clang, disable to avoid a warning
+  fi
+
+  
 
   # disable CONFIG_DEBUG_INFO=y at build time otherwise memory usage blows up
   # and can easily overwhelm a system with 32 GB of memory using a tmpfs build
@@ -230,13 +262,15 @@ prepare() {
   # these are ck's htrimer patches
   echo "Patching with ck hrtimer patches..."
 
+  
+
   for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
     patch -Np1 -i $i
   done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
-  make olddefconfig
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM olddefconfig
   diff -u ../config .config || :
 
   # https://github.com/graysky2/kernel_gcc_patch
@@ -277,8 +311,8 @@ prepare() {
 }
 
 build() {
-  cd linux-${pkgver}
-  make all
+  cd linux-${pkgverion}
+  make LLVM=$_LLVM LLVM_IAS=$_LLVM all
 }
 
 _package() {
@@ -289,7 +323,7 @@ _package() {
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
   #groups=('ck-generic')
 
-  cd linux-${pkgver}
+  cd linux-${pkgverion}
 
   local kernver="$(<version)"
   local modulesdir="$pkgdir/usr/lib/modules/$kernver"
@@ -321,7 +355,7 @@ _package-headers() {
   depends=("$pkgbase") # added to keep kernel and headers packages matched
   #groups=('ck-generic')
 
-  cd linux-${pkgver}
+  cd linux-${pkgverion}
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
   echo "Installing build files..."
