@@ -87,7 +87,7 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.15.8
+pkgver=5.15.8+hotfix
 pkgverion=5.15.8
 pkgrel=1
 arch=(x86_64)
@@ -144,8 +144,7 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.15.6-s0ix-patch-2021-12-01.patch
-  Revert-duplicate-S0ix-patch.patch
+  9001-v5.15.8-s0ix-patch-2021-12-14.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -185,8 +184,7 @@ b2sums=('e487a060254abee0939ed4643db64dc7f2f7bf132946ee0e79ea25c2b0797665545c878
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        'a327ae7a93b44572252ef13c92a237c17109fe38aaf206e17234e826c5b34946013d1e6a2290f5868c8e3bb65543aaa385781d9db3d895ba2d5e07c883c80a7e'
-        '6d56086c2b6db231d3e282e73c49800f9b2cd63d65102a9de80fd8635ac594da28fe7dc6a1d8c48c816d65ddae9e07131dd05bf44c0f4c2870b92059a0483be1')
+        'c885c8ca766a20702544cde78502e594a33b11af03066263aac7209d0889ac5a6dfd19d19775db80f0c17ccefe3457a9da00e74de774774ceaa2fc5711a8f16a')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -233,7 +231,6 @@ prepare() {
   # and can easily overwhelm a system with 32 GB of memory using a tmpfs build
   # partition ... this was introduced by FS#66260, see:
   # https://git.archlinux.org/svntogit/packages.git/commit/trunk?h=packages/linux&id=663b08666b269eeeeaafbafaee07fd03389ac8d7
-  scripts/config --module  CONFIG_VFIO
   scripts/config --enable CONFIG_BPF_LSM
   scripts/config --disable CONFIG_DEBUG_INFO
   scripts/config --disable CONFIG_CGROUP_BPF
