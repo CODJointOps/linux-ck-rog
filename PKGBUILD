@@ -87,9 +87,9 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.15.8+hotfix
+pkgver=5.15.8
 pkgverion=5.15.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
