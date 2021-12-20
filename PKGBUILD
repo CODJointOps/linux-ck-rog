@@ -87,9 +87,9 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.15.8
-pkgverion=5.15.8
-pkgrel=2
+pkgver=5.15.10
+pkgverion=5.15.10
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -150,7 +150,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('e487a060254abee0939ed4643db64dc7f2f7bf132946ee0e79ea25c2b0797665545c878b399a62d140472ea3bef416cff996ead417e09f955328db8113d85ccb'
+b2sums=('a21e5a965c0a4fe2e014961a6cc8f4c621fd9313a4b170f97fd3f77ae2494e721bf579e68d5836c167ed9fb6674784b20722501f6adc44d634073e74a82da765'
         'SKIP'
         '28f0bb1cba1ce9b5c92e3a140b57789474cb3de3c9ae16d1fbdd96ec0cd43bfdbc3273890cf26329eddc0b6d07e56c4b0920418886480e70619f84b8a67e692d'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
