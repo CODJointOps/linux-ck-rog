@@ -89,7 +89,7 @@ _subarch=
 pkgbase=linux-ck-rog
 pkgver=5.15.11
 pkgverion=5.15.11
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -153,7 +153,7 @@ validpgpkeys=(
 )
 b2sums=('37a264e50069e5b195b99a355944893e42c6fc05eb5fef7907855de4d31c693421e6fc578575ed141534b52ab9105dfd7697bdfec238cfa88e16a6c41f138ebd'
         'SKIP'
-        '28f0bb1cba1ce9b5c92e3a140b57789474cb3de3c9ae16d1fbdd96ec0cd43bfdbc3273890cf26329eddc0b6d07e56c4b0920418886480e70619f84b8a67e692d'
+        '23cf7b8bd8f23ba3ef55b166c0c9cb1a52c3066de0b1a46ad239dbf4632797b37a8cf96704ed5ea7066057e084aaaf1228118198f276a42b725230d46bdb4151'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
         'cf589ec357a96b9e573bce298bb1d64fa50339ea047767f2a730a8dc9808e2316b3e7c885d730233ba50d570725d4c72632d1b74a371ef02ac471d4c944fe63e'
         'b830684472b4c8865f2041268aab1d0a84b07ca542c157901f668896e23816f268b79cbac1953d087cdf227f55bb3f312f19598f1c6de0ead32b77fdce8f618a'
@@ -240,7 +240,11 @@ prepare() {
   scripts/config --disable CONFIG_BPF_PRELOAD
   scripts/config --disable CONFIG_BPF_LIRC_MODE2
   scripts/config --disable CONFIG_BPF_KPROBE_OVERRIDE
-
+  scripts/config --module CONFIG_VFIO
+  scripts/config --module CONFIG_VFIO_VIRQFD
+  scripts/config --disable CONFIG_VFIO_NOIOMMU
+  scripts/config --module CONFIG_VFIO_PCI
+  
   # https://bbs.archlinux.org/viewtopic.php?pid=1824594#p1824594
   scripts/config --enable CONFIG_PSI_DEFAULT_DISABLED
 
