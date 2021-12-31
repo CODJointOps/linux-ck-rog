@@ -152,7 +152,7 @@ validpgpkeys=(
 )
 b2sums=('6e201ffe5832a998b9bc8f63e9fcbf7f0384d4e4abb1a68c2299b8362b51ddcfbc35639bfc836a84202bec3705f5bca1616396c16daa05d778659d286f63b6a8'
         'SKIP'
-        '7fd5874ad8795be5bc7a17f31ecc3d58e3d9046b07a53e9b4ef6d4ad9290c7a41a0ab2a2e71201fc8a18b54fd0092e165ca189b51d6f8d2e62916bbb0f163679'
+        '9d9146d36ba7d856ba1ec7ab57ccd7e5d99c10af769ca445a9281fbcb17fb337c3ecf745e4d2569a6119b6a8e4890b727e1c8a6de23c3775531b7409c7f77925'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
         'cf589ec357a96b9e573bce298bb1d64fa50339ea047767f2a730a8dc9808e2316b3e7c885d730233ba50d570725d4c72632d1b74a371ef02ac471d4c944fe63e'
         'b830684472b4c8865f2041268aab1d0a84b07ca542c157901f668896e23816f268b79cbac1953d087cdf227f55bb3f312f19598f1c6de0ead32b77fdce8f618a'
@@ -234,10 +234,10 @@ prepare() {
   scripts/config --enable CONFIG_BPF_LSM
   scripts/config --disable CONFIG_DEBUG_INFO
   scripts/config --disable CONFIG_CGROUP_BPF
-  scripts/config --disable CONFIG_BPF_LSM
-  scripts/config --disable CONFIG_BPF_PRELOAD
-  scripts/config --disable CONFIG_BPF_LIRC_MODE2
-  scripts/config --disable CONFIG_BPF_KPROBE_OVERRIDE
+  #scripts/config --disable CONFIG_BPF_LSM
+  #scripts/config --disable CONFIG_BPF_PRELOAD
+  #scripts/config --disable CONFIG_BPF_LIRC_MODE2
+  #scripts/config --disable CONFIG_BPF_KPROBE_OVERRIDE
   scripts/config --module CONFIG_VFIO
   scripts/config --module CONFIG_VFIO_VIRQFD
   scripts/config --disable CONFIG_VFIO_NOIOMMU
