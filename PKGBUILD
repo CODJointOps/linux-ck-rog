@@ -144,7 +144,6 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  asus-fan-curve.patch
   9001-v5.15.8-s0ix-patch-2021-12-14.patch
 )
 validpgpkeys=(
@@ -185,7 +184,6 @@ b2sums=('6e201ffe5832a998b9bc8f63e9fcbf7f0384d4e4abb1a68c2299b8362b51ddcfbc35639
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        'b1d0cd74b2bfcb7eafb9e2893e60ad03cbaca6698284dfc52059686e69e67fbdad56f6066b6ee851efcf426b6e5e0c98015cdd99194e10ffed33c263bb13e1e7'
         'c885c8ca766a20702544cde78502e594a33b11af03066263aac7209d0889ac5a6dfd19d19775db80f0c17ccefe3457a9da00e74de774774ceaa2fc5711a8f16a')
 
 export KBUILD_BUILD_HOST=archlinux

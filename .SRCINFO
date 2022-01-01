@@ -47,7 +47,6 @@ pkgbase = linux-ck-rog
 	source = Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
 	source = Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
 	source = Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-	source = asus-fan-curve.patch
 	source = 9001-v5.15.8-s0ix-patch-2021-12-14.patch
 	validpgpkeys = ABAF11C65A2970B130ABE3C479BE3E4300411886
 	validpgpkeys = 647F28654894E3BD457199BE38DBBDC86092693E
