@@ -89,7 +89,7 @@ _subarch=
 pkgbase=linux-ck-rog
 pkgver=5.15.12
 pkgverion=5.15.12
-pkgrel=1
+pkgrel=4
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -106,7 +106,7 @@ _localversion=${pkgver##*\.}
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=8ba6612318090567422d49ccc79bc7bbe5484cfc
+_commit=530f6899d3502b012d6b6225a1800ac5e38e072f
 _xan=linux-5.15.y-xanmod
 
 _gcc_more_v=20211114
@@ -144,6 +144,7 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
+  asus-fan-curve.patch
   9001-v5.15.8-s0ix-patch-2021-12-14.patch
 )
 validpgpkeys=(
@@ -154,7 +155,7 @@ b2sums=('6e201ffe5832a998b9bc8f63e9fcbf7f0384d4e4abb1a68c2299b8362b51ddcfbc35639
         'SKIP'
         '9d9146d36ba7d856ba1ec7ab57ccd7e5d99c10af769ca445a9281fbcb17fb337c3ecf745e4d2569a6119b6a8e4890b727e1c8a6de23c3775531b7409c7f77925'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
-        'cf589ec357a96b9e573bce298bb1d64fa50339ea047767f2a730a8dc9808e2316b3e7c885d730233ba50d570725d4c72632d1b74a371ef02ac471d4c944fe63e'
+        'c4538e5696183993f3727c73e48b63aa1ba50f5568bdaa31a241e66d1f129ab6e97a2bd52465f6ce2449b81c2c3b0508e5437e140ffa4c6a072ad7810fe05176'
         'b830684472b4c8865f2041268aab1d0a84b07ca542c157901f668896e23816f268b79cbac1953d087cdf227f55bb3f312f19598f1c6de0ead32b77fdce8f618a'
         'd98bf61e26e595deba649201787dd02b94a89ff0564c61555c569c59946ffc476932d46fd6fd23c7761fae3498bb412d61ca29a890b09d51e87e065cf0326ced'
         '7be28283d5789cdf97e9cb56d9ec4c85c97f0df11d13ea438b29c2cafa7053074ffc7369b5f946d54c09b2d246423f29bce228469bc7fc483e3e0f9340edcc5e'
@@ -184,6 +185,7 @@ b2sums=('6e201ffe5832a998b9bc8f63e9fcbf7f0384d4e4abb1a68c2299b8362b51ddcfbc35639
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
+        'b1d0cd74b2bfcb7eafb9e2893e60ad03cbaca6698284dfc52059686e69e67fbdad56f6066b6ee851efcf426b6e5e0c98015cdd99194e10ffed33c263bb13e1e7'
         'c885c8ca766a20702544cde78502e594a33b11af03066263aac7209d0889ac5a6dfd19d19775db80f0c17ccefe3457a9da00e74de774774ceaa2fc5711a8f16a')
 
 export KBUILD_BUILD_HOST=archlinux
