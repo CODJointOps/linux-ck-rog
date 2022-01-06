@@ -87,9 +87,9 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.15.12
-pkgverion=5.15.12
-pkgrel=4
+pkgver=5.15.13
+pkgverion=5.15.13
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -106,7 +106,7 @@ _localversion=${pkgver##*\.}
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=530f6899d3502b012d6b6225a1800ac5e38e072f
+_commit=3e7794eafd58b7fa4a337d2bae2b6398181b13eb
 _xan=linux-5.15.y-xanmod
 
 _gcc_more_v=20211114
@@ -119,7 +119,6 @@ source=(
   0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
   0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
   0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch
-  0005-Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch
   0006-lg-laptop-Recognize-more-models.patch
   sphinx-workaround.patch
   PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
@@ -150,16 +149,15 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('6e201ffe5832a998b9bc8f63e9fcbf7f0384d4e4abb1a68c2299b8362b51ddcfbc35639bfc836a84202bec3705f5bca1616396c16daa05d778659d286f63b6a8'
+b2sums=('ea8775ffb1e25107b62dfe7acac4e9098094f7e1cd9846566cdf9fc1f0a6e2520f27dc48ce85c29e91032eb21a6f6682f6698a91b02b9424f2d895b5c9b468ec'
         'SKIP'
         '9d9146d36ba7d856ba1ec7ab57ccd7e5d99c10af769ca445a9281fbcb17fb337c3ecf745e4d2569a6119b6a8e4890b727e1c8a6de23c3775531b7409c7f77925'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
-        'c4538e5696183993f3727c73e48b63aa1ba50f5568bdaa31a241e66d1f129ab6e97a2bd52465f6ce2449b81c2c3b0508e5437e140ffa4c6a072ad7810fe05176'
+        '08287c0c4714a0336a3da785c9b856d4e200db44b13ef7f6be0d6de2c176404dc614f2b5cf8756c694060203ec28d031dd5ed6767d3c1dc77d626edc1ee4d210'
         'b830684472b4c8865f2041268aab1d0a84b07ca542c157901f668896e23816f268b79cbac1953d087cdf227f55bb3f312f19598f1c6de0ead32b77fdce8f618a'
         'd98bf61e26e595deba649201787dd02b94a89ff0564c61555c569c59946ffc476932d46fd6fd23c7761fae3498bb412d61ca29a890b09d51e87e065cf0326ced'
         '7be28283d5789cdf97e9cb56d9ec4c85c97f0df11d13ea438b29c2cafa7053074ffc7369b5f946d54c09b2d246423f29bce228469bc7fc483e3e0f9340edcc5e'
         '32b7af5143c512f2e5a7ad015a61d23c8bc30649fdb58cfc74d95e564a8edd9b55dc82ce9bf02e10b38d8f18cd74c1027d5178f6fc08b32a8c267bc3da0805e1'
-        '5e2d8ece3e159266d6ebd7c1a9c89778beba238de770911048a7e3c02ed0a7f9647ce09fb91f13ded859aa1d4f805a3adcdf55ee6fa6c20bc0ac40ef326662f2'
         '7d19c161bfe68d6d6a8889cee1a089c573d4618501d09bd4e2284aebff794c64b4b14a58f8034b71b63a5d88014ad289b8791cb4fb7f6c25d1749e09b0050009'
         'db64b425139c107c69f44624901ae50b5e604d4c9fdfe84f78c298f8ed7a7739033a72ec678c5c3c0e82e59809d97799d0c25f96c64ef5ae79910cb890fc7bfb'
         'd4be09f159c6d0d33b2b4a91da5e04e2815c7091549ff2ca9268c7546fa39af688638a983db434db9a8357be2ff7c95926accf64428664a122b7ede82b782b33'
