@@ -89,7 +89,7 @@ _subarch=
 pkgbase=linux-ck-rog
 pkgver=5.15.13
 pkgverion=5.15.13
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -120,6 +120,7 @@ source=(
   0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
   0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch
   0006-lg-laptop-Recognize-more-models.patch
+  9009-amd-pstate-sqashed-v7.patch
   sphinx-workaround.patch
   PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
   iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
@@ -159,6 +160,7 @@ b2sums=('ea8775ffb1e25107b62dfe7acac4e9098094f7e1cd9846566cdf9fc1f0a6e2520f27dc4
         '7be28283d5789cdf97e9cb56d9ec4c85c97f0df11d13ea438b29c2cafa7053074ffc7369b5f946d54c09b2d246423f29bce228469bc7fc483e3e0f9340edcc5e'
         '32b7af5143c512f2e5a7ad015a61d23c8bc30649fdb58cfc74d95e564a8edd9b55dc82ce9bf02e10b38d8f18cd74c1027d5178f6fc08b32a8c267bc3da0805e1'
         '7d19c161bfe68d6d6a8889cee1a089c573d4618501d09bd4e2284aebff794c64b4b14a58f8034b71b63a5d88014ad289b8791cb4fb7f6c25d1749e09b0050009'
+        '57ea0487259800be58fe54f399b23bdb5a7cf3310a9ea9611477aac30ee307f3ce4b8c4eb4f9554c60e651c4a9f9bdacc77c657ed43a9160dc387e620d6b4dfb'
         'db64b425139c107c69f44624901ae50b5e604d4c9fdfe84f78c298f8ed7a7739033a72ec678c5c3c0e82e59809d97799d0c25f96c64ef5ae79910cb890fc7bfb'
         'd4be09f159c6d0d33b2b4a91da5e04e2815c7091549ff2ca9268c7546fa39af688638a983db434db9a8357be2ff7c95926accf64428664a122b7ede82b782b33'
         '62168cc422c73ddcda8c4b64d5546422d62c14c86f0eefafe53634be9ab231969e79f9bf0cb6161a05130428de90d41a2c2e1d18283294d8b446644b0da57b48'
