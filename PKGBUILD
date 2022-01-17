@@ -87,9 +87,9 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.15.14
-pkgverion=5.15.14
-pkgrel=1
+pkgver=5.16
+pkgverion=5.16
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -106,8 +106,8 @@ _localversion=${pkgver##*\.}
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
 # thankfully xanmod keeps the hrtimer patches up to date
-_commit=3e7794eafd58b7fa4a337d2bae2b6398181b13eb
-_xan=linux-5.15.y-xanmod
+_commit=6b08df20f31708099a7fbccf5448958b4836118f
+_xan=linux-5.16.y-xanmod
 
 _gcc_more_v=20211114
 source=(
@@ -115,76 +115,41 @@ source=(
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
-  0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
-  0002-PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
-  0003-iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
-  0004-cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch
-  0006-lg-laptop-Recognize-more-models.patch
-  9009-amd-pstate-sqashed-v7.patch
-  sphinx-workaround.patch
-  PCI-Add-more-NVIDIA-controllers-to-the-MSI-masking-q.patch
-  iommu-intel-do-deep-dma-unmapping-to-avoid-kernel-fl.patch
-  cpufreq-intel_pstate-ITMT-support-for-overclocked-sy.patch
   Bluetooth-btintel-Fix-bdaddress-comparison-with-garb.patch
-  lg-laptop-Recognize-more-models.patch
-  zstd-udpate-fixes.patch
-  x86-ACPI-State-Optimize-C3-entry-on-AMD-CPUs.patch
-  x86-change-default-to-spec_store_bypass_disable-prct.patch
   acpi-battery-Always-read-fresh-battery-state-on-update.patch
   cfg80211-dont-WARN-if-a-self-managed-device.patch
   HID-asus-Reduce-object-size-by-consolidating-calls.patch
   v16-asus-wmi-Add-support-for-custom-fan-curves.patch
-  mt76-mt7921-Add-mt7922-support.patch
-  1-2-mt76-mt7915-send-EAPOL-frames-at-lowest-rate.patch
-  2-2-mt76-mt7921-send-EAPOL-frames-at-lowest-rate.patch
   mt76-mt7921-enable-VO-tx-aggregation.patch
-  1-2-mt76-mt7921-robustify-hardware-initialization-flow.patch
   1-2-Bluetooth-btusb-Add-Mediatek-MT7921-support-for-Foxconn.patch
   2-2-Bluetooth-btusb-Add-Mediatek-MT7921-support-for-IMC-Network.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.15.8-s0ix-patch-2021-12-14.patch
+  9001-v5.16-s0ix-patch-2022-01-15.patch
+
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('4276e3a03f6a8fb44ce91f11ff4abbf8e0aca20122c5c1231da74fccab1105af8a76c34a686ba8b038737ec5117d64b549e85cbfc1b3238c69bbf8149e8f7774'
+b2sums=('07a90cc640ff89e1359c06cee8c38abd33e51f9b9a89833e31a1d2750526fda4a59e8884db3c1ea63df0a37f0d3de6b5a922b014b7313d8abce20d90ac08adcb'
         'SKIP'
         '9d9146d36ba7d856ba1ec7ab57ccd7e5d99c10af769ca445a9281fbcb17fb337c3ecf745e4d2569a6119b6a8e4890b727e1c8a6de23c3775531b7409c7f77925'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
-        '08287c0c4714a0336a3da785c9b856d4e200db44b13ef7f6be0d6de2c176404dc614f2b5cf8756c694060203ec28d031dd5ed6767d3c1dc77d626edc1ee4d210'
-        'b830684472b4c8865f2041268aab1d0a84b07ca542c157901f668896e23816f268b79cbac1953d087cdf227f55bb3f312f19598f1c6de0ead32b77fdce8f618a'
-        'd98bf61e26e595deba649201787dd02b94a89ff0564c61555c569c59946ffc476932d46fd6fd23c7761fae3498bb412d61ca29a890b09d51e87e065cf0326ced'
-        '7be28283d5789cdf97e9cb56d9ec4c85c97f0df11d13ea438b29c2cafa7053074ffc7369b5f946d54c09b2d246423f29bce228469bc7fc483e3e0f9340edcc5e'
-        '32b7af5143c512f2e5a7ad015a61d23c8bc30649fdb58cfc74d95e564a8edd9b55dc82ce9bf02e10b38d8f18cd74c1027d5178f6fc08b32a8c267bc3da0805e1'
-        '7d19c161bfe68d6d6a8889cee1a089c573d4618501d09bd4e2284aebff794c64b4b14a58f8034b71b63a5d88014ad289b8791cb4fb7f6c25d1749e09b0050009'
-        '57ea0487259800be58fe54f399b23bdb5a7cf3310a9ea9611477aac30ee307f3ce4b8c4eb4f9554c60e651c4a9f9bdacc77c657ed43a9160dc387e620d6b4dfb'
-        'db64b425139c107c69f44624901ae50b5e604d4c9fdfe84f78c298f8ed7a7739033a72ec678c5c3c0e82e59809d97799d0c25f96c64ef5ae79910cb890fc7bfb'
-        'd4be09f159c6d0d33b2b4a91da5e04e2815c7091549ff2ca9268c7546fa39af688638a983db434db9a8357be2ff7c95926accf64428664a122b7ede82b782b33'
-        '62168cc422c73ddcda8c4b64d5546422d62c14c86f0eefafe53634be9ab231969e79f9bf0cb6161a05130428de90d41a2c2e1d18283294d8b446644b0da57b48'
-        '3607b209ffe43085987955131262107706f1900c8b81ab02b21899eedea2ab6eea91897fcd0aa301a66bb6275ffe1d66995f411825881ce695e657c8f6a84b02'
+        '7e12da62ddc8535b044f57447e15b550dc2d1421bba4fc830dfad7b328b01f21190f63c5534b9af6a8c09f56bfb9c21014b07645569a6c7b93b950aca07ade5a'
         '41d1cbfe692dad3bca6667d0407c8366fe913fd70ebc7530f73283d0f482a589563a8ef5154e3f88fef9587295a9f70a57eca0246f047d8e2ed7b959bd5c80da'
-        'a95008246b7f703dd0f905b694426d3281c365175c96e50d6ac2a0ba0d4177b98d88116529c614d06810c7246d9f101c1ed65c68f03c8b0f1f8cf8a69140d80e'
-        '8e9957af42b76720beff4c09d6ec0585b632578e14768b83c064b3cacb42f8ba5dc360da4c88cb1539992bfd37618b1bd599468ab8b1785202740d8ed6603eb7'
-        'ba20adaccd4623ad6313880c5c6160894cc784f2c657213262958f5ff783abfa88a5c3c3e8dd5e59d63936d5372c9a0036f5a9b868078bca9a95b1d063948246'
-        '1e7604552fb457400d40dc7e578c30940444090d7339020421b4c0f51c5db4c694a5d8791cd7a59464a04a6939b5b295509a4a7442e725caf287768642cab40b'
         '069515160926c57d54fd6ae6b179af03c00e5e87fb85a25c2a7ad0cb05431c9e306dee8f6060f6a002c06a26fa24474ea3eeb14c5cc015caf1f92c637fd9f5cd'
         '006ec152c2864356eb9fd4dc59fd0ab3e4106878d2e82e93b6774eefbbb5dfc27f226113831435faa90f4d2978a542f272cfb972b85f6312705f80e9cfe23d95'
         '381fa9e3b7bc32d255af4e615b989e1518b17d6a626573d7886cd5af3b922da11924e819e6be51c33089015f374d4ee654062d430e37ac9870d96b42f4d1eef7'
         '080619ae5aab57e332623a3ecb895e556ce81a87e75ab114f508e2459dcfaa67cfbed29159878015833fe281abcf6ce6864856788bc37bae5cc946350f085520'
-        '5d199b121d77e7ee1f19e0de1d27f5e7be44c574c9b347a408c75bc8dd77be91900c220cc06d639a64f4bc2019f93d156a850322ac0119ead38316d16bc62d9c'
-        'bb845ac96c4b1b623fc6953cd466fbb7b6002914a7392dadb6a6e4192821572dbf4cc2f75a59ec2317c7e195571f3bedff077119184038d0a9a3b872c0c6709a'
-        '92e15668a718400dc88942460f66d2cfa66b2e56a369929798808cb90b2c95f7d52af875863a2b860f9dbbb198451d0de36b31b1b16f43ad0e0b95cda3bc54e0'
         '4cdbf23b35154929db0a81936b52a4501d935efa87034c1e01aa05ddccd9a8715fe16fcd95378f36f5e641e93059b0a7862b3589b9ad4bb965c55a2471acfd57'
-        '406c94d6524b3b16faed8407073da168a201746b2f88ef1bfd45f9e08d5f5762653e793297e09e4eb4b415c6c64a34f41a84c36e213eece54964c40cf3f374ab'
         '2b467266bee080b91340ea7f3aa522c618993951d0d37fb169c09ad840da5d4d828065e664ffc22c0262486d1e965890a61d185bf8f49413daa6bf4f5bc71aac'
         'f1ecd7722a124fe8f7e3f7ffd48a747c2174f55e2ce696439217d0025203f695e332bd15e488a47a59f0cb09dde9eeed07183de07f8049c2f39cfff0b5830cb7'
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        'c885c8ca766a20702544cde78502e594a33b11af03066263aac7209d0889ac5a6dfd19d19775db80f0c17ccefe3457a9da00e74de774774ceaa2fc5711a8f16a')
+        '91606b7136a2a5967d2e3b094d3f49e146b1277a7f2527b30ad356d3c5549f80ec0b141ba09a8d482f1add3242f6be6f05a96e26660a431ee86142e780ecba81')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -260,11 +225,11 @@ prepare() {
   # these are ck's htrimer patches
   echo "Patching with ck hrtimer patches..."
 
-  
+  #5.16 Update
 
-  for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
-    patch -Np1 -i $i
-  done
+  #for i in ../linux-patches-"$_commit"/"$_xan"/ck-hrtimer/0*.patch; do
+  #  patch -Np1 -i $i
+  #done
 
   # non-interactively apply ck1 default options
   # this isn't redundant if we want a clean selection of subarch below
