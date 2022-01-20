@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16
-pkgverion=5.16
+pkgver=5.16.1
+pkgverion=5.16.1
 pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -126,14 +126,14 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.16-s0ix-patch-2022-01-15.patch
-
+  9001-v5.16-s0ix-patch-2022-01-17.patch
+  v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('07a90cc640ff89e1359c06cee8c38abd33e51f9b9a89833e31a1d2750526fda4a59e8884db3c1ea63df0a37f0d3de6b5a922b014b7313d8abce20d90ac08adcb'
+b2sums=('39c5b24f069de76ef838fda68281ead1bcc2c98a5f16d95bb32b1d9eb67cb43aef4ccd80395071dbf64ac7409dfcbd129d923a5c8efd22a4998dfbb7c34996c1'
         'SKIP'
         '9d9146d36ba7d856ba1ec7ab57ccd7e5d99c10af769ca445a9281fbcb17fb337c3ecf745e4d2569a6119b6a8e4890b727e1c8a6de23c3775531b7409c7f77925'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -149,7 +149,8 @@ b2sums=('07a90cc640ff89e1359c06cee8c38abd33e51f9b9a89833e31a1d2750526fda4a59e888
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        '91606b7136a2a5967d2e3b094d3f49e146b1277a7f2527b30ad356d3c5549f80ec0b141ba09a8d482f1add3242f6be6f05a96e26660a431ee86142e780ecba81')
+        '6f2f47cd4c2af39e00f75ab6591cfa71dfe89c8afee25cb488b7e44ec43ef45cb4ce3e8daaf6ad619e0de65bcacf1534efe4d7064920be35aaf735cc16ce6b2b'
+        '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
