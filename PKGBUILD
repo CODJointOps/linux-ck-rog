@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.2
-pkgverion=5.16.2
+pkgver=5.16.3
+pkgverion=5.16.3
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -101,7 +101,7 @@ if [ "$_compiler" = "clang" ]; then
   makedepends+=(clang llvm lld python)
   _LLVM=1
 fi
-options=('!strip')
+options=('!strip' '!ccache')
 _localversion=${pkgver##*\.}
 
 # https://ck-hack.blogspot.com/2021/08/514-and-future-of-muqss-and-ck-once.html
@@ -128,17 +128,18 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
   9001-v5.16-s0ix-patch-2022-01-17.patch
   v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
-  Linux-5.16.2.patch
   mt76-mt7921e-fix-possible-probe-failure-after-reboot.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
+  0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
+  
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('6f07d9da86101ab72eadd53a9f58a4740037608a006fc622a923d4dd9578ce62cc9959711dca2e953e3fb68286f55fb14be04a4a00fc49a33c2c28bd5944532f'
+b2sums=('69e27d11073f60f7ed28e500f52b8b86c98fd080827947bac91f59013b10a37350b22403bfbd9a705c6d0a14c4ddef0547ab61b64bcefbde46f707a5e2a10b40'
         'SKIP'
-        'a65a71bdbe60e35ff5b4d4c3343a0b770f736da005625c7c08fc5bf2bb1f30e9d2fc64dba6133381fc3e2565d05eedf39d7b787feeff505bf4270ac5993d237b'
+        '0d747de65beaf093cb7ef67f562d5712db5f767dead69628bdc136b37b4885ba5988f579ed323111b5775f22012bd438c19bc4dd74345dd0cea30fc39383b1b8'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
         '7e12da62ddc8535b044f57447e15b550dc2d1421bba4fc830dfad7b328b01f21190f63c5534b9af6a8c09f56bfb9c21014b07645569a6c7b93b950aca07ade5a'
         '41d1cbfe692dad3bca6667d0407c8366fe913fd70ebc7530f73283d0f482a589563a8ef5154e3f88fef9587295a9f70a57eca0246f047d8e2ed7b959bd5c80da'
@@ -154,9 +155,9 @@ b2sums=('6f07d9da86101ab72eadd53a9f58a4740037608a006fc622a923d4dd9578ce62cc99597
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
         '6f2f47cd4c2af39e00f75ab6591cfa71dfe89c8afee25cb488b7e44ec43ef45cb4ce3e8daaf6ad619e0de65bcacf1534efe4d7064920be35aaf735cc16ce6b2b'
         '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247'
-        '0ae7c8f8cc02f1f57b0265e95997b03b981262aa0772869981ee14eefc9a6f9b4437c7d1e64d018a8e34cb6f753165fde3afd97e62eafee65fc54353be7a489c'
         'd9b22e7b552c7e8b072b7a113d970080c11255d164ddaf494241c789e1632316a431d2ec04a7a27e8c4383a6455c0d5a01eabe0ebe90a9bfd90ed5e764b4dbb4'
-        '8c06f840512d90c2339066677f1c64c07d1d9b7cd9a7d653fa7be1f806b0c66cb26892db662ef95cb6c27c996aef03566454699cfaa8d620dcb90c1f8f8d8276')
+        '163ca2dc04f259cc99a58bc9ef25a54757b82ddc68ac40fdf21fa9f877d901aacf5081f6a44d2b2041ad731afaeac863549834f652a9622eaa84db44965525ec'
+        'b18b3d5d005bc9cb1479899534f35dc3797e0094fd1304ef57ef5e6e786ec7fbe7364a4421769ab4a4098a6150db0b93ae36043504c4f78251fef8ca2cc4791e')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
