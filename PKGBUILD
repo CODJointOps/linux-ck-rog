@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.4
-pkgverion=5.16.4
+pkgver=5.16.5
+pkgverion=5.16.5
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -126,20 +126,22 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.16.3-s0ix-patch-2022-01-25.patch
+  9001-v5.16.5-s0ix-patch-2022-02-01.patch
   v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
   mt76-mt7921e-fix-possible-probe-failure-after-reboot.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
   0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
   UDP-IPv6-Optimizations-from-5.17-partial.patch
   Bluetooth-Read-codec-capabilities-only-if-supported.patch
+  CONFIG_RCU_FAST_NO_HZ-removal-for-v5.17.patch
+  
   
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('f55ad08f653d0f77926369ea86019513a8de6190d40315f3377e3b48e29dca7498f2af67420b79b90d60d697621df11d5a2d9834436bc5fb563723a8ab1f0e59'
+b2sums=('9eccc20c59a93aa21349ce99b88638de8bb0589037e91143d23932cb5312878bac7ae95adfd0f95b79ad0085f74109577427675320e4a2548f8762661dcdc8e4'
         'SKIP'
         '3c802735a8e9628ce9b3cd7f6bde305efe1110a80658f1d1e664c3d71b086e36ef4389f1bcf6ea51b29426b63c589c6216ae6ef143292fcae2360078b988c9b1'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -155,13 +157,14 @@ b2sums=('f55ad08f653d0f77926369ea86019513a8de6190d40315f3377e3b48e29dca7498f2af6
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        'ae1b25e86b4613e6aa761aa9b3f48269deef134e98e43c93dd435072a5cf4c7e2fd69b2f948fe4d0ec8de57daf52dfacd0cf35e623fb3d7309eeb0a4546fd25b'
+        'a02df474ea470ff208a34c63bce79325b45702bd1e3c9d488503d63c94c783cc4e5c6e57fe9b90dd78b06614494470b27663ec1d9f08429238981bd9cbf6ea1e'
         '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247'
         'd9b22e7b552c7e8b072b7a113d970080c11255d164ddaf494241c789e1632316a431d2ec04a7a27e8c4383a6455c0d5a01eabe0ebe90a9bfd90ed5e764b4dbb4'
         '163ca2dc04f259cc99a58bc9ef25a54757b82ddc68ac40fdf21fa9f877d901aacf5081f6a44d2b2041ad731afaeac863549834f652a9622eaa84db44965525ec'
         'b18b3d5d005bc9cb1479899534f35dc3797e0094fd1304ef57ef5e6e786ec7fbe7364a4421769ab4a4098a6150db0b93ae36043504c4f78251fef8ca2cc4791e'
         'f597bfe86867d9b33585dde4162a66e7d3fc44fbf958a5caea20c0bb42ac5e71d72aecb871b90157c24a614f50bdc1a11b9b616f350405036da40492b951614c'
-        '65215033f21491e37b8ce7dc2153b2e3f2443a1763c39ae987f073b32a40a9452d8cf9a45bf5c17cb5ce0b68666fb55af670295f8c0832d03bff2f6ca199f7fa')
+        '65215033f21491e37b8ce7dc2153b2e3f2443a1763c39ae987f073b32a40a9452d8cf9a45bf5c17cb5ce0b68666fb55af670295f8c0832d03bff2f6ca199f7fa'
+        '26997f243c478553568b9ece5cbfbb9abb36fa76cb85065c7916dbe1102b9a0fc2a4b1d06db3152715d1b5fc1e91fcaa72a5bfd0af5708f7d204fc995607d823')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
