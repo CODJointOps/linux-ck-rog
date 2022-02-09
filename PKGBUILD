@@ -89,7 +89,7 @@ _subarch=
 pkgbase=linux-ck-rog
 pkgver=5.16.8
 pkgverion=5.16.8
-pkgrel=1
+pkgrel=2
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -126,19 +126,17 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.16.7-s0ix-patch-2022-02-06.patch
+  9001-v5.16.8-s0ix-patch-2022-02-08.patch
   v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
   mt76-mt7921e-fix-possible-probe-failure-after-reboot.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
-  0003-Bluetooth-Read-codec-capabilities-only-if-supported.patch
-  UDP-IPv6-Optimizations-from-5.17-partial.patch
+  0004-Bluetooth-fix-deadlock-for-RFCOMM-sk-state-change.patch
+  udp-ipv6-optimisations-v2-net-next.patch
   Bluetooth-Read-codec-capabilities-only-if-supported.patch
   CONFIG_RCU_FAST_NO_HZ-removal-for-v5.17.patch
   Parallel-boot-v4-on-5.16.5.patch
-  ALSA-hda-realtek-Add-quirk-for-ASUS-M16-GU603H.patch
-  iommu-amd-Fix-loop-timeout-issue-in-iommu_ga_log_enable.patch
-  
-  
+  af_unix-Replace-unix_table_lock-with-per-hash-locks.patch
+  implement-threaded-console-printing.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -160,17 +158,17 @@ b2sums=('6df3328fd48c422deb1b5bc9f3a98cc0a9d82c1d10ed87d64ca78823fa30ea5434ab85c
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        '118b9d051139232d8b18e77b9985b930971f3d8f61836908eeb724f9d4bd258077bffbb3f2e8fb2b4c57c33a5c34752800900a68521298a2ec4b95e6c9e691d2'
+        '0d931bd96997a3f99148c98db912e8c9074047e2fb8cdccf99271fe12032c5fe52752407bf0445fb02b31aba48dc742e003a8c559438cc2f8ae6c496d92fff6f'
         '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247'
         'd9b22e7b552c7e8b072b7a113d970080c11255d164ddaf494241c789e1632316a431d2ec04a7a27e8c4383a6455c0d5a01eabe0ebe90a9bfd90ed5e764b4dbb4'
-        '163ca2dc04f259cc99a58bc9ef25a54757b82ddc68ac40fdf21fa9f877d901aacf5081f6a44d2b2041ad731afaeac863549834f652a9622eaa84db44965525ec'
-        'b18b3d5d005bc9cb1479899534f35dc3797e0094fd1304ef57ef5e6e786ec7fbe7364a4421769ab4a4098a6150db0b93ae36043504c4f78251fef8ca2cc4791e'
-        'f597bfe86867d9b33585dde4162a66e7d3fc44fbf958a5caea20c0bb42ac5e71d72aecb871b90157c24a614f50bdc1a11b9b616f350405036da40492b951614c'
+        '3a5138cc28ad21dd1dbe867bc90f89bc85fc4f8a778af431be04eb392e3b8b0dc2b42936a2b6e3cfc37735f5c0843e0cea7be4749dec26a2a24d6b79ef834cd4'
+        'bca4fc5afe454e5dd8c1e8f667747a56bc5915b43b04c08753f4922087a92f545071c41d57218b52364c9030cfc077104715c7884c20e5db44a0939032d7957e'
+        '306d93a7618af0c1b2e0b57ea0a9913ce1540b45c3d04b50bd0d15071ace5c87f62bd8a2680e8ebcb8e6f43d945f17948fb178613617185310e6a426e290f019'
         '65215033f21491e37b8ce7dc2153b2e3f2443a1763c39ae987f073b32a40a9452d8cf9a45bf5c17cb5ce0b68666fb55af670295f8c0832d03bff2f6ca199f7fa'
         '26997f243c478553568b9ece5cbfbb9abb36fa76cb85065c7916dbe1102b9a0fc2a4b1d06db3152715d1b5fc1e91fcaa72a5bfd0af5708f7d204fc995607d823'
         '27d65c6b06aee5c53791b47885f475a283d0d2057142032e67ec929b90f80d0b3332298ba405358c98d3587c5ae03f619e016342ad9fa0580c65a66055a65044'
-        '45be8d529b36f21a8bd4cc1fd060b4d3623c195725a237373bedd68f0467187ad78eca7bea4e2b0deeff3f50ff6e5e32ed6c5a520f79717262714e39edc34757'
-        '2b40ea52615eac57ea175e482bb0df50cce6f90c4d688f811676bfd94b5ec7bf4300b34b3c67f1d84fa8c538deca85733fb589a547d00f3971cb7c04adcc03c4')
+        'd40b39b8ed925f932d7a6b30a8c32f36ec7ac41b302850085c42a29a3c5d8a2daa1d7e09fba06b2546a89f216becd0adca58482289a748daa5d5ab801564ca65'
+        '2700d09f376dfab9fe6800003b3edce623faab668ddbe8371cf59415fe7463b0567de1d30e47c836f6b3e2dbd80865c736d90f8fcc40956c55bdb9eb079a61be')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
