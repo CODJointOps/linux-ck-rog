@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.9
-pkgverion=5.16.9
+pkgver=5.16.10
+pkgverion=5.16.10
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -142,12 +142,13 @@ source=(
   Revert-XANMOD-fair-Remove-all-energy-efficiency-functions.patch
   cpufreq-CPPC-Fix-performance-frequency-conversion.patch
   btrfs-fix-autodefrag-on-5.16.9.patch
+  HID-asus-wmi-ROG-x13-flow-tablet-mode-support.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('ce4544512021eebfb8d7c87e176ae1e4ba741021c60484369af5280c51c64df48553ab2d7b53de2c3e358ea9bfbb8545a1dc7ef694628668bfcab329c59fb0fc'
+b2sums=('6394d715c765e27aafa3ef7ba34fb17522eb14c5e004b8ab54eb31b55bcb782205d516cdef5f7204739890642289cd1f2ef8ac430a7ee63698ccf3b3d7b0b118'
         'SKIP'
         '3c802735a8e9628ce9b3cd7f6bde305efe1110a80658f1d1e664c3d71b086e36ef4389f1bcf6ea51b29426b63c589c6216ae6ef143292fcae2360078b988c9b1'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -178,7 +179,8 @@ b2sums=('ce4544512021eebfb8d7c87e176ae1e4ba741021c60484369af5280c51c64df48553ab2
         'aba418e9344bda838523202a11afb731f142caa9d1b4179e6f29158ec5e11f0e7c48c93085b5e17354788a86b0c1aa79f687c89413eecc8fd6af4e2174afa6eb'
         'b3576ecd6b9dffed700354568fad38a1c1ea4dc3352b2452b273ecf3a647a1be9edb25b4dc9a259977d76fc0153c044453198dac2c3b69a8b7e9c0276b2fed09'
         'c5e971beeaeda64d70bf0411968853531b66d0f38d69c9d8eb8e675af43a9df531231b8fa1c2335a60045b8f5e1dae0724634e1a08e4baa665e6d8caa935d663'
-        'd3660ba49a4d33bcd56cd4604d3a564022ba735e9ec4fe804ed0d9ededdae8460be6a63a6d02e28917f7c95c4383cd11b45adfee9b5ef416dd67b70e7878eda3')
+        '74a47a990cc45e985f95169408d090dc0814ab5a6f3ec02091e431e5377c54c66442a30cb16a3e96d84f35bdb10d59d328a3927bdcc0fb785371d641430d97fc'
+        'f961e3b3a3105e5274781595c66374e3362ac6ab30b6fd9ab6dbac5d6dca480e84ce33ba9106fff3b090edb6957cce69b9182c8c83fba37e6d0006b7af8a88d5')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
