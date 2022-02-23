@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.10
-pkgverion=5.16.10
+pkgver=5.16.11
+pkgverion=5.16.11
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -126,7 +126,7 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.16.9-s0ix-patch-2022-02-10.patch
+  9001-v5.16.10-s0ix-patch-2022-02-17.patch
   v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
   mt76-mt7921e-fix-possible-probe-failure-after-reboot.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
@@ -148,7 +148,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('6394d715c765e27aafa3ef7ba34fb17522eb14c5e004b8ab54eb31b55bcb782205d516cdef5f7204739890642289cd1f2ef8ac430a7ee63698ccf3b3d7b0b118'
+b2sums=('165fc78193959c0876158b3448fe33361a9b30ead17f216b92f94a11aad7a6a0e38a852a69239d954ad71978c14b79f8aca19903ce9d540c9776c855308beb50'
         'SKIP'
         '3c802735a8e9628ce9b3cd7f6bde305efe1110a80658f1d1e664c3d71b086e36ef4389f1bcf6ea51b29426b63c589c6216ae6ef143292fcae2360078b988c9b1'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -164,7 +164,7 @@ b2sums=('6394d715c765e27aafa3ef7ba34fb17522eb14c5e004b8ab54eb31b55bcb782205d516c
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        '6a132c13619b032d7d3df94262f5f4b39127c37d0c9c786e3e669e2e74488b51d9ebd0418e2dff9b0243f5eff5532431a4e4363d684f11756ab2c475074a4510'
+        'd552208baef292cc632f370303596e6a175af5abdf4d98edaeddebf145074c3bb892dab9a10cca92c04f60de43c6572eca9c1029e175c8d4969ca56af5ac7505'
         '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247'
         'd9b22e7b552c7e8b072b7a113d970080c11255d164ddaf494241c789e1632316a431d2ec04a7a27e8c4383a6455c0d5a01eabe0ebe90a9bfd90ed5e764b4dbb4'
         '3a5138cc28ad21dd1dbe867bc90f89bc85fc4f8a778af431be04eb392e3b8b0dc2b42936a2b6e3cfc37735f5c0843e0cea7be4749dec26a2a24d6b79ef834cd4'
