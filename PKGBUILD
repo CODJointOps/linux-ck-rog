@@ -87,9 +87,9 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.11
-pkgverion=5.16.11
-pkgrel=2
+pkgver=5.16.12
+pkgverion=5.16.12
+pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
 license=(GPL2)
@@ -126,7 +126,7 @@ source=(
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-Foxconn-Mediatek-Chip.patch
   Bluetooth-btusb-Add-support-for-IMC-Networks-Mediatek-Chip-MT7921.patch
-  9001-v5.16.11-s0ix-patch-2022-02-23.patch
+  9001-v5.16.11-s0ix-patch-2022-02-24.patch
   v2-drm-amdgpu-Use-correct-VIEWPORT_DIMENSION-for-DCN2.patch
   mt76-mt7921e-fix-possible-probe-failure-after-reboot.patch
   0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch
@@ -146,12 +146,15 @@ source=(
   0005-mt76-mt7921-add-support-for-PCIe-ID-0x0608-0x0616.patch
   0006-mt76-mt7921-reduce-log-severity-levels-for-informati.patch
   0007-Revert-NFSv4.1-query-for-fs_location-attr-on-a-new-f.patch
+  fixup-fs-btrfs-build-on-5.16.12.patch
+  btrfs-autodefrag-fixup-and-safe-perf-from-next.patch
+  Linux-5.16.12-rc1.patch
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('165fc78193959c0876158b3448fe33361a9b30ead17f216b92f94a11aad7a6a0e38a852a69239d954ad71978c14b79f8aca19903ce9d540c9776c855308beb50'
+b2sums=('762f7605607116d5c25535079f029d666a715c8d2fcb8f6f91fee8a2aefbf62e7ee9767de50b6dd4f9c16f88b5dc8b4a40f0d8f0a766c6a913978b1f96c8c0b7'
         'SKIP'
         '3c802735a8e9628ce9b3cd7f6bde305efe1110a80658f1d1e664c3d71b086e36ef4389f1bcf6ea51b29426b63c589c6216ae6ef143292fcae2360078b988c9b1'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -167,7 +170,7 @@ b2sums=('165fc78193959c0876158b3448fe33361a9b30ead17f216b92f94a11aad7a6a0e38a852
         '91d2516e4d6f23a095ff8b6b75f91ff86b779a1ccc6e608dfefc7c18bb5c01370e55b81f5df9cd276eccd0dd2a1760c1a73a080a8016f1b260e5d0947ea2f56f'
         '18dd356f02f24c1eaf540ffdbd564c35da119348d597785b0ca73d0cdd6e357615ab169865a0791e5feb9f891d21d03ae945466cfbb8191ea41c1867a8e3914f'
         '3468367be1340f3b6de4272a1b5f6ee1b328e136d28203b9cab698779780ffcf3056d8884f0469da7d58fbe5d3a5bd33474c0e2464a262c718945df3ddc8efee'
-        '23e1b1497989aaa1f9e287dac30c704811f71aabd0dc1b75dddb1e41f97e47240a5d585416937b7062053bf85355538eeeef7880417ee6de3a8144487d88288f'
+        'b984192f6a5199e5d3de16774552aae34b864bea07a668c9e013596df61d681d564ecdf22e9decbed77a61bd12acc7c3c9747f04c4e07ae920f941e8a29bae06'
         '89991cbda31929159c51cca208dd36647f543fc927b8253a7b2d40fca167b5618f633e22a0ea5339df926707bc91e5eb225cb015453e0fcddd59330981449247'
         'd9b22e7b552c7e8b072b7a113d970080c11255d164ddaf494241c789e1632316a431d2ec04a7a27e8c4383a6455c0d5a01eabe0ebe90a9bfd90ed5e764b4dbb4'
         'fcbd8714ac56ee03e8c61615773fbc104db77a2ebe761b3e94449889733b0c61779c54f891998fe46c9fe6238517c82c39d9073f053760590396552a6ae28e98'
@@ -186,7 +189,10 @@ b2sums=('165fc78193959c0876158b3448fe33361a9b30ead17f216b92f94a11aad7a6a0e38a852
         'd2c825a812edc0ddf03e715f9d63af908ab3ff6cdfdf844fc1b7c1b4d4d5a04f49ea2f437f3bb7dccafeb53e691c9a0387f4266dd78022a22c60cedcdde8b1a7'
         '0f84ab2d64281c45ad22ce7e148f526e37dc2c35a715ed8b29a311c07f29ce4a6b4a52cab019048f46f7b626a5716ed68a8a603dc723cc8158ffc77a5c940b86'
         '079582f81133b2bc24b2868700104ee747a4b1ad3da31180bcb37db9abd111d89b06801b81305c426d4ed7f7ec0e7341b0d30e312dc8f1e9b326c11ef6d6ff55'
-        '95bb03860cc91cfe9ebfea7128eda2be281c97bec5f6fdaa90404b4043d87c8689053d44d49bf504eac5e128e5132dad33bf90d67474eceb6c2f7a205b65b5a5')
+        '95bb03860cc91cfe9ebfea7128eda2be281c97bec5f6fdaa90404b4043d87c8689053d44d49bf504eac5e128e5132dad33bf90d67474eceb6c2f7a205b65b5a5'
+        '966e6ac8e1da17e2121607991d2df85e65449c77b28d43fe0e8fb548298dec7a8c9ce02d5fe42d02ac47ff68a29d671503a9bb4e4e1f1ae1c98479826a734197'
+        '7691319c485587a8edd51c1b8182daf3f9f45230898660b07e1192944577efab7386840fcd4b748e3ef08bdd65accc479e7f4e44909209b308b6d5dd66643cc7'
+        'effb64124a525bcc1be0c8f7225b7ae45418040b179900bb186bfbb1a304a544fc5eb1491bd6a61c04f2d9b88c5222b461c312ed0458055a555e157ef3a30d0d')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
