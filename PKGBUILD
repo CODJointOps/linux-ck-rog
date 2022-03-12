@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.13
-pkgverion=5.16.13
+pkgver=5.16.14
+major=5.16.14
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -96,11 +96,13 @@ license=(GPL2)
 makedepends=(
   bc kmod libelf pahole cpio perl tar xz
 )
+
 if [ "$_compiler" = "clang" ]; then
   pkgver="${pkgver}+clang"
   makedepends+=(clang llvm lld python)
   _LLVM=1
 fi
+
 options=('!strip' '!ccache')
 _localversion=${pkgver##*\.}
 
@@ -111,7 +113,7 @@ _xan=linux-5.16.y-xanmod
 
 _gcc_more_v=20211114
 source=(
-  "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$pkgverion.tar".{xz,sign}
+  "https://www.kernel.org/pub/linux/kernel/v5.x/linux-$major.tar".{xz,sign}
   config         # the main kernel config file
   "more-uarches-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_compiler_patch/archive/$_gcc_more_v.tar.gz"
   "xanmod-patches-from-ck-$_commit.tar.gz::https://github.com/xanmod/linux-patches/archive/$_commit.tar.gz"
@@ -150,13 +152,14 @@ source=(
   btrfs-autodefrag-fixup-and-safe-perf-from-next.patch
   Linux-5.16.12-rc1.patch
 )
+
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('6631cd1c19819a4cb2ba747eb62590f0f7739ef8c00302a78cffc0af907fbad135f3cf2934fbf403940c3331b015f8dd9bdf0362315feab7a3ff45076ed04515'
+b2sums=('151fa2d87c04de862913c360fb8bdb4d2cf4cbc7ca9777b97ee3f03005e8d5ef72b307fa5787ae53157291773158bca6b499cb1e71f6dc5098f424e15ff6c948'
         'SKIP'
-        '3c802735a8e9628ce9b3cd7f6bde305efe1110a80658f1d1e664c3d71b086e36ef4389f1bcf6ea51b29426b63c589c6216ae6ef143292fcae2360078b988c9b1'
+        '8b7dee373a1d1a6e0c6bbbd63e5bb8c579e6ff907a0244f98faeead1fcb76e8da57da214c1b5cf26a42c4b9f18d8b155cc2c70b8ad7b8af631780fc9e7d56939'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
         '47843d5eae56b388742ef6d73372962a2f28c03d73501ddf30b62a194b81b781d0d5ce73131e30c70d09cdb27a2960bf952ed9e4767222c5bd44605047087ee7'
         '6e7dcac4bd0e05f6e7ae43f08f9757b5ed8893c91f81502f8cc6ef70cc8c53ca59d2c196806bdfb797d94369a75e397aa1eea4a6d48fdfaaf6ac6c49dfed02fa'
@@ -199,7 +202,7 @@ export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
 prepare() {
-  cd linux-${pkgverion}
+  cd linux-${major}
 
   echo "Setting version..."
   scripts/setlocalversion --save-scmversion
@@ -317,7 +320,7 @@ prepare() {
 }
 
 build() {
-  cd linux-${pkgverion}
+  cd linux-${major}
   make LLVM=$_LLVM LLVM_IAS=$_LLVM all
 }
 
@@ -329,7 +332,7 @@ _package() {
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
   #groups=('ck-generic')
 
-  cd linux-${pkgverion}
+  cd linux-${major}
 
   local kernver="$(<version)"
   local modulesdir="$pkgdir/usr/lib/modules/$kernver"
@@ -361,7 +364,8 @@ _package-headers() {
   depends=("$pkgbase") # added to keep kernel and headers packages matched
   #groups=('ck-generic')
 
-  cd linux-${pkgverion}
+  cd linux-${major}
+  
   local builddir="$pkgdir/usr/lib/modules/$(<version)/build"
 
   echo "Installing build files..."
