@@ -1,7 +1,7 @@
-From a3522be2facbca017e2ce12b7899bef3775e26c0 Mon Sep 17 00:00:00 2001
+From f8a49984307e14849829a32732742b64bb511576 Mon Sep 17 00:00:00 2001
 From: Desmond Cheong Zhi Xi <desmondcheongzx@gmail.com>
 Date: Mon, 4 Oct 2021 14:07:34 -0400
-Subject: [PATCH] Bluetooth: fix deadlock for RFCOMM sk state change
+Subject: [PATCH 4/8] Bluetooth: fix deadlock for RFCOMM sk state change
 
 Syzbot reports the following task hang [1]:
 
