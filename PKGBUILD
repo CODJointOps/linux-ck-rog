@@ -87,8 +87,8 @@ _subarch=
 
 ### IMPORTANT: Do no edit below this line unless you know what you're doing
 pkgbase=linux-ck-rog
-pkgver=5.16.15
-major=5.16.15
+pkgver=5.16.17
+major=5.16.17
 pkgrel=1
 arch=(x86_64)
 url="https://wiki.archlinux.org/index.php/Linux-ck"
@@ -148,7 +148,6 @@ source=(
   0005-mt76-mt7921-add-support-for-PCIe-ID-0x0608-0x0616.patch
   0006-mt76-mt7921-reduce-log-severity-levels-for-informati.patch
   0007-Revert-NFSv4.1-query-for-fs_location-attr-on-a-new-f.patch
-  fixup-fs-btrfs-build-on-5.16.12.patch
   btrfs-autodefrag-fixup-and-safe-perf-from-next.patch
 )
 
@@ -156,7 +155,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-b2sums=('5b14c19cca863da26f226b30f7a04d5767c90a882f9ff06241659f54632410868863a00e6ba91d82272e315d20238d3edcb7d4b6475bcb0162dfc47b6890ecc5'
+b2sums=('ba48ac26f61ee5614ebf8cd57e3c6e26aac188068216912308e3666d9529be8812e725c9448ef7413a2de36ff35c9cb2bddc3c11c7afd339a722d48a4cf998c2'
         'SKIP'
         '8b7dee373a1d1a6e0c6bbbd63e5bb8c579e6ff907a0244f98faeead1fcb76e8da57da214c1b5cf26a42c4b9f18d8b155cc2c70b8ad7b8af631780fc9e7d56939'
         '534091fb5034226d48f18da2114305860e67ee49a1d726b049a240ce61df83e840a9a255e5b8fa9279ec07dd69fb0aea6e2e48962792c2b5367db577a4423d8d'
@@ -192,7 +191,6 @@ b2sums=('5b14c19cca863da26f226b30f7a04d5767c90a882f9ff06241659f54632410868863a00
         'a9f0b7954ba77f94ae3bc49c621610a88f0888f91c93b4a4188569c0e06c5afe355971ad4323b03d79aa5cb63bfe5dc4a52dbf0267fd6a1f3e6d3c64dcc77b13'
         '5f4af41492f1a13f2a40764f5e1838588d2fd53addfd2cea05de4d51f760da5e6968ffaba9b6749fcdec5034dc1572777def8497cc978a01fd4b5eb82673f2e4'
         '03096c8152ed3a671a9f59565dd891f10a5a8a91d03fa1fa8a5db85291f41a6f1cc5f44c47a2c8e78a690599afbd79d2ed12498b0494b4bc0d0311c0102598a3'
-        '966e6ac8e1da17e2121607991d2df85e65449c77b28d43fe0e8fb548298dec7a8c9ce02d5fe42d02ac47ff68a29d671503a9bb4e4e1f1ae1c98479826a734197'
         '7691319c485587a8edd51c1b8182daf3f9f45230898660b07e1192944577efab7386840fcd4b748e3ef08bdd65accc479e7f4e44909209b308b6d5dd66643cc7')
 
 export KBUILD_BUILD_HOST=archlinux
